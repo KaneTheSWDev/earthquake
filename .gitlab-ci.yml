@@ -9,6 +9,7 @@ build:
     - npm install -g @angular/cli
     - npm install
     - npm run build --prod
+    - mv dist/futurice/* public/
   artifacts:
     paths:
       - public
