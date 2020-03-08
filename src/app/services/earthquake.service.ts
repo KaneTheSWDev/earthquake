@@ -8,7 +8,7 @@ import {tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EarthquakeService {
-  url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
+  url = 'https://earthquake.usgs.gov/earthquarekes/feed/v1.0/summary/all_day.geojson';
 
   private _earthquakeData$ = new ReplaySubject<EarthquakeResponse>(1);
 
@@ -18,8 +18,7 @@ export class EarthquakeService {
 
 
   getEarthquakeData(): Observable<EarthquakeResponse> {
-    // return the subject here
-    // subscribers will will notified when the data is refreshed
+
     return this._earthquakeData$.asObservable();
   }
 
