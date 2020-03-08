@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <ngx-charts-linear-gauge
+    *ngIf="data"
+    [view]="view"
+    [scheme]="colorScheme"
+    [value]="data.geometries.length"
+    [previousValue]="previousValue"
+    units="Earthquakes">
+  </ngx-charts-linear-gauge>
+</div>

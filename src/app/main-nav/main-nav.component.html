@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="opened != opened">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/overview">Overview</a>
+      <a mat-list-item routerLink="/table">Table</a>
+      <a mat-list-item routerLink="/map">Maps</a>
+      <a mat-list-item routerLink="/chart/vertical">Bar Chart</a>
+      <a mat-list-item routerLink="/chart/pie">Pie Chart </a>
+      <a mat-list-item routerLink="/chart/pie-grid">Pie-Grid Chart </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar-row>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>futurice</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="onRefresh()"
+             matTooltip="Refresh Data">
+        <mat-icon class="icon">refresh</mat-icon>
+      </button>
+    </mat-toolbar>
+    </mat-toolbar-row>
+    <ng-content>
+
+
+    </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

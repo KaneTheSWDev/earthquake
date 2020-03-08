@@ -1,0 +1,38 @@
+<div class="mat-elevation-z8" [hidden]="!data">
+
+  <table mat-table [dataSource]="matTableDataSource" matSort class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Place Column -->
+    <ng-container matColumnDef="place">
+      <th mat-header-cell *matHeaderCellDef> Location</th>
+      <td mat-cell *matCellDef="let element"> {{element.place }} </td>
+    </ng-container>
+
+    <!-- Mag Column -->
+    <ng-container matColumnDef="magnitude">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Magnitude</th>
+      <td mat-cell *matCellDef="let element"> {{element.mag}} </td>
+    </ng-container>
+
+    <!-- Time Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> Time</th>
+      <td mat-cell *matCellDef="let element"> {{element.time | date: 'medium' }} </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type</th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<mat-paginator [pageSize]="20" (page)="setupPagination($event)"></mat-paginator>
+
