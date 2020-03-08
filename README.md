@@ -1,27 +1,67 @@
-# Futurice
+![Build Status](https://gitlab.com/pages/plain-html/badges/master/build.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
+---
 
-## Development server
+Example plain HTML site using GitLab Pages.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Learn more about GitLab Pages at https://pages.gitlab.io and the official
+documentation https://docs.gitlab.com/ce/user/project/pages/.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-## Build
+- [GitLab CI](#gitlab-ci)
+- [GitLab User or Group Pages](#gitlab-user-or-group-pages)
+- [Did you fork this project?](#did-you-fork-this-project)
+- [Troubleshooting](#troubleshooting)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Running unit tests
+## GitLab CI
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project's static Pages are built by [GitLab CI][ci], following the steps
+defined in [`.gitlab-ci.yml`](.gitlab-ci.yml):
 
-## Running end-to-end tests
+```
+image: alpine:latest
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+pages:
+  stage: deploy
+  script:
+  - echo 'Nothing to do...'
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+```
 
-## Further help
+The above example expects to put all your HTML files in the `public/` directory.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## GitLab User or Group Pages
+
+To use this project as your user/group website, you will need one additional
+step: just rename your project to `namespace.gitlab.io`, where `namespace` is
+your `username` or `groupname`. This can be done by navigating to your
+project's **Settings**.
+
+Read more about [user/group Pages][userpages] and [project Pages][projpages].
+
+## Did you fork this project?
+
+If you forked this project for your own use, please go to your project's
+**Settings** and remove the forking relationship, which won't be necessary
+unless you want to contribute back to the upstream project.
+
+## Troubleshooting
+
+1. CSS is missing! That means that you have wrongly set up the CSS URL in your
+   HTML files. Have a look at the [index.html] for an example.
+
+[ci]: https://about.gitlab.com/gitlab-ci/
+[index.html]: https://gitlab.com/pages/plain-html/blob/master/public/index.html
+[userpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages
+[projpages]: https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages
