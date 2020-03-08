@@ -1,18 +1,16 @@
-image: alpine:latest
+image: node:10
 
-pages:
-  cache:
-    paths:
-      - node_modules/
-  stage: deploy
+stages:
+  - build
+
+build:
+  stage: 'build'
   script:
-  - npm install -g @angular/cli
-  - npm install
-  - npm build --prod
-  - mv dist/futurice* public.
+    - npm install -g @angular/cli
+    - npm install
+    - npm run build --prod
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
-  - pages
+    - master
