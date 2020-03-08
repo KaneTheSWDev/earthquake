@@ -6,10 +6,10 @@ stages:
 build:
   stage: 'build'
   script:
-    - npm install -g @angular/cli@6.2.1
+    - npm install -g @angular/cli
     - npm install
     - ng build
-    - mv dist/fossilizer/* public/
+    - mv dist/futurice/* public/
   artifacts:
     paths:
       - public
