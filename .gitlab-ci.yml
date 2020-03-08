@@ -1,11 +1,18 @@
 image: alpine:latest
 
 pages:
+  cache:
+    paths:
+      - node_modules/
   stage: deploy
   script:
-  - echo 'Nothing to do...'
+  - npm install -g @angular/cli
+  - npm install
+  - npm build --prod
+  - mv dist/futurice* public.
   artifacts:
     paths:
     - public
   only:
   - master
+  - pages
