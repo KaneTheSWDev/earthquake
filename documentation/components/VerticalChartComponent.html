@@ -842,8 +842,7 @@ export class VerticalChartComponent implements OnInit, OnDestroy {
   [showXAxisLabel]&#x3D;&quot;showXAxisLabel&quot;
   [showYAxisLabel]&#x3D;&quot;showYAxisLabel&quot;
   [xAxisLabel]&#x3D;&quot;xAxisLabel&quot;
-  [yAxisLabel]&#x3D;&quot;yAxisLabel&quot;
-  (select)&#x3D;&quot;onSelect($event)&quot;&gt;
+  [yAxisLabel]&#x3D;&quot;yAxisLabel&quot;&gt;
 &lt;/ngx-charts-bar-vertical&gt;
 </code></pre>
     </div>
@@ -880,7 +879,7 @@ export class VerticalChartComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ngx-charts-bar-vertical  [view]="view"  [scheme]="colorScheme"  [results]="chartData"  [gradient]="gradient"  [xAxis]="showXAxis"  [yAxis]="showYAxis"  [legend]="showLegend"  [showXAxisLabel]="showXAxisLabel"  [showYAxisLabel]="showYAxisLabel"  [xAxisLabel]="xAxisLabel"  [yAxisLabel]="yAxisLabel"  (select)="onSelect($event)"></ngx-charts-bar-vertical></div>'
+        var COMPONENT_TEMPLATE = '<div><ngx-charts-bar-vertical  [view]="view"  [scheme]="colorScheme"  [results]="chartData"  [gradient]="gradient"  [xAxis]="showXAxis"  [yAxis]="showYAxis"  [legend]="showLegend"  [showXAxisLabel]="showXAxisLabel"  [showYAxisLabel]="showYAxisLabel"  [xAxisLabel]="xAxisLabel"  [yAxisLabel]="yAxisLabel"></ngx-charts-bar-vertical></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DataMapComponent', 'selector': 'app-data-map'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'LinearGaugeComponent', 'selector': 'app-linear-gauge'},{'name': 'MainNavComponent', 'selector': 'app-main-nav'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'},{'name': 'PieGridComponent', 'selector': 'app-pie-grid'},{'name': 'VerticalChartComponent', 'selector': 'app-vertical-chart'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'VerticalChartComponent'};

@@ -30,20 +30,52 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="futurice">Futurice</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.3.18.</p>
-<h2 id="development-server">Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2 id="code-scaffolding">Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2 id="build">Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
-<h2 id="running-unit-tests">Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2 id="further-help">Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+<p><img src="https://gitlab.com/pages/plain-html/badges/master/build.svg" alt="Build Status" class="img-responsive"></p>
+<hr>
+<p>Example plain HTML site using GitLab Pages.</p>
+<p>Learn more about GitLab Pages at <a href="https://pages.gitlab.io">https://pages.gitlab.io</a> and the official
+documentation <a href="https://docs.gitlab.com/ce/user/project/pages/">https://docs.gitlab.com/ce/user/project/pages/</a>.</p>
+<hr>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#gitlab-ci">GitLab CI</a></li>
+<li><a href="#gitlab-user-or-group-pages">GitLab User or Group Pages</a></li>
+<li><a href="#did-you-fork-this-project">Did you fork this project?</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="gitlab-ci">GitLab CI</h2>
+<p>This project&#39;s static Pages are built by <a href="https://about.gitlab.com/gitlab-ci/">GitLab CI</a>, following the steps
+defined in <a href=".gitlab-ci.yml"><code>.gitlab-ci.yml</code></a>:</p>
+<div><pre class="line-numbers"><code class="language-none">image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+  - echo &#39;Nothing to do...&#39;
+  artifacts:
+    paths:
+    - public
+  only:
+  - master</code></pre></div><p>The above example expects to put all your HTML files in the <code>public/</code> directory.</p>
+<h2 id="gitlab-user-or-group-pages">GitLab User or Group Pages</h2>
+<p>To use this project as your user/group website, you will need one additional
+step: just rename your project to <code>namespace.gitlab.io</code>, where <code>namespace</code> is
+your <code>username</code> or <code>groupname</code>. This can be done by navigating to your
+project&#39;s <strong>Settings</strong>.</p>
+<p>Read more about <a href="https://docs.gitlab.com/ce/user/project/pages/introduction.html#user-or-group-pages">user/group Pages</a> and <a href="https://docs.gitlab.com/ce/user/project/pages/introduction.html#project-pages">project Pages</a>.</p>
+<h2 id="did-you-fork-this-project">Did you fork this project?</h2>
+<p>If you forked this project for your own use, please go to your project&#39;s
+<strong>Settings</strong> and remove the forking relationship, which won&#39;t be necessary
+unless you want to contribute back to the upstream project.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ol>
+<li>CSS is missing! That means that you have wrongly set up the CSS URL in your
+HTML files. Have a look at the <a href="https://gitlab.com/pages/plain-html/blob/master/public/index.html">index.html</a> for an example.</li>
+</ol>
 
 
 

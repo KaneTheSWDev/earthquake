@@ -614,12 +614,12 @@ export class MainNavComponent implements OnInit, OnDestroy{
       &lt;a mat-list-item routerLink&#x3D;&quot;/table&quot;&gt;Table&lt;/a&gt;
       &lt;a mat-list-item routerLink&#x3D;&quot;/map&quot;&gt;Maps&lt;/a&gt;
       &lt;a mat-list-item routerLink&#x3D;&quot;/chart/vertical&quot;&gt;Bar Chart&lt;/a&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie&quot;&gt;Pie Chart &lt;/a&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie-grid&quot;&gt;Pie-Grid Chart &lt;/a&gt;
+&lt;!--      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie&quot;&gt;Pie Chart &lt;/a&gt;--&gt;
+&lt;!--      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie-grid&quot;&gt;Pie-Grid Chart &lt;/a&gt;--&gt;
     &lt;/mat-nav-list&gt;
   &lt;/mat-sidenav&gt;
   &lt;mat-sidenav-content&gt;
-    &lt;mat-toolbar-row&gt;
+
     &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
       &lt;button
         type&#x3D;&quot;button&quot;
@@ -636,7 +636,7 @@ export class MainNavComponent implements OnInit, OnDestroy{
         &lt;mat-icon class&#x3D;&quot;icon&quot;&gt;refresh&lt;/mat-icon&gt;
       &lt;/button&gt;
     &lt;/mat-toolbar&gt;
-    &lt;/mat-toolbar-row&gt;
+
     &lt;ng-content&gt;
 
 
@@ -703,7 +703,7 @@ export class MainNavComponent implements OnInit, OnDestroy{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav #drawer class="sidenav" fixedInViewport               [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"               [mode]="(isHandset$ | async) ? \'over\' : \'side\'"               [opened]="opened != opened">    <mat-toolbar>Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item routerLink="/overview">Overview</a>      <a mat-list-item routerLink="/table">Table</a>      <a mat-list-item routerLink="/map">Maps</a>      <a mat-list-item routerLink="/chart/vertical">Bar Chart</a>      <a mat-list-item routerLink="/chart/pie">Pie Chart </a>      <a mat-list-item routerLink="/chart/pie-grid">Pie-Grid Chart </a>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar-row>    <mat-toolbar color="primary">      <button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"      >        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button>      <span>futurice</span>      <span class="spacer"></span>      <button mat-icon-button (click)="onRefresh()"             matTooltip="Refresh Data">        <mat-icon class="icon">refresh</mat-icon>      </button>    </mat-toolbar>    </mat-toolbar-row>    <ng-content>    </ng-content>  </mat-sidenav-content></mat-sidenav-container></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav #drawer class="sidenav" fixedInViewport               [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"               [mode]="(isHandset$ | async) ? \'over\' : \'side\'"               [opened]="opened != opened">    <mat-toolbar>Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item routerLink="/overview">Overview</a>      <a mat-list-item routerLink="/table">Table</a>      <a mat-list-item routerLink="/map">Maps</a>      <a mat-list-item routerLink="/chart/vertical">Bar Chart</a><!--      <a mat-list-item routerLink="/chart/pie">Pie Chart </a>--><!--      <a mat-list-item routerLink="/chart/pie-grid">Pie-Grid Chart </a>-->    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"      >        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button>      <span>futurice</span>      <span class="spacer"></span>      <button mat-icon-button (click)="onRefresh()"             matTooltip="Refresh Data">        <mat-icon class="icon">refresh</mat-icon>      </button>    </mat-toolbar>    <ng-content>    </ng-content>  </mat-sidenav-content></mat-sidenav-container></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DataMapComponent', 'selector': 'app-data-map'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'LinearGaugeComponent', 'selector': 'app-linear-gauge'},{'name': 'MainNavComponent', 'selector': 'app-main-nav'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'},{'name': 'PieGridComponent', 'selector': 'app-pie-grid'},{'name': 'VerticalChartComponent', 'selector': 'app-vertical-chart'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MainNavComponent'};
