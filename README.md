@@ -20,6 +20,5 @@ compodoc -p tsconfig.json -s
 * Implement backend using NestJS
   * Implement pagination
 * Integrate More Charts
-  * Filter through the data even more to get more detailed charts
 * Further Development of Table page
 * Further Interaction of Map page
