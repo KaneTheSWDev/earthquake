@@ -29,17 +29,21 @@ export class LinearGaugeComponent implements OnInit, OnDestroy {
     domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
   };
   previousValue;
+  private currentLength: number;
+  private previousLength: number;
 
   constructor(private readonly earthquakeService: EarthquakeService) {
   }
   ngOnInit() {
     this.earthquakeService.getEarthquakeData().subscribe(data => {
       this.data = data;
-      // const currLength = data.geometries.length;
-      // if (data.geometries.length !== currLength) {
-      //   this.previousValue = data.geometries.length;
-      // }
-      // this.generateChartData();
+      this.currentLength = data.geometries.length;
+      console.log(`current Length ${this.currentLength}`);
+      console.log(`previous Length ${this.previousLength}`);
+      if (this.previousLength !== this.currentLength) {
+        this.previousLength = this.currentLength;
+        console.log(`previous Length ${this.previousLength}`);
+      }
     });
 
     this.earthquakeService.refreshEarthquakeData()
