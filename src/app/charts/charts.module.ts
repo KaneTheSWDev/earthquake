@@ -8,6 +8,8 @@ import { VerticalChartComponent } from './vertical-chart/vertical-chart.componen
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { PieGridComponent } from './pie-grid/pie-grid.component';
 import {FlexModule} from '@angular/flex-layout';
+import {MatFormFieldModule, MatSelectModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +22,9 @@ import {FlexModule} from '@angular/flex-layout';
     ChartsRoutingModule,
     NgxChartsModule,
     FlexModule,
+    MatSelectModule,
+    FormsModule,
+    MatFormFieldModule
 
   ]
 })

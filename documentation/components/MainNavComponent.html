@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>futurice documentation</title>
+        <title>earthquake-application documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">futurice documentation</a>
+            <a href="../" class="navbar-brand">earthquake-application documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -274,8 +274,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/main-nav/main-nav.component.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/main-nav/main-nav.component.ts:44</a></div>
                 </td>
             </tr>
 
@@ -479,7 +479,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                            <i>Default value : </i><code>true</code>
                         </td>
                     </tr>
                         <tr>
@@ -551,9 +551,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnDestroy, OnInit} from &#x27;@angular/core&#x27;;
-import { BreakpointObserver, Breakpoints } from &#x27;@angular/cdk/layout&#x27;;
-import {Observable, Subject, timer} from &#x27;rxjs&#x27;;
-import {map, shareReplay, switchMap, takeUntil, tap} from &#x27;rxjs/operators&#x27;;
+import {BreakpointObserver, Breakpoints} from &#x27;@angular/cdk/layout&#x27;;
+import {Observable, Subject} from &#x27;rxjs&#x27;;
+import {map, shareReplay, takeUntil} from &#x27;rxjs/operators&#x27;;
 import {EarthquakeService} from &#x27;../services/earthquake.service&#x27;;
 import {EarthquakeResponse} from &#x27;../models/earthquakeResponse&#x27;;
 
@@ -562,8 +562,8 @@ import {EarthquakeResponse} from &#x27;../models/earthquakeResponse&#x27;;
   templateUrl: &#x27;./main-nav.component.html&#x27;,
   styleUrls: [&#x27;./main-nav.component.css&#x27;]
 })
-export class MainNavComponent implements OnInit, OnDestroy{
-  opened &#x3D; false;
+export class MainNavComponent implements OnInit, OnDestroy {
+  opened &#x3D; true;
   data: EarthquakeResponse;
   refresh &#x3D; false;
   today: Date;
@@ -588,7 +588,6 @@ export class MainNavComponent implements OnInit, OnDestroy{
   }
   onRefresh() {
     this.refresh &#x3D; true;
-    console.log(&#x27;refresh called&#x27;);
     this.earthquakeService.refreshEarthquakeData().subscribe(() &#x3D;&gt; {
       this.refresh &#x3D; false;
     });
@@ -609,14 +608,44 @@ export class MainNavComponent implements OnInit, OnDestroy{
                [mode]&#x3D;&quot;(isHandset$ | async) ? &#x27;over&#x27; : &#x27;side&#x27;&quot;
                [opened]&#x3D;&quot;opened !&#x3D; opened&quot;&gt;
     &lt;mat-toolbar&gt;Menu&lt;/mat-toolbar&gt;
-    &lt;mat-nav-list&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/overview&quot;&gt;Overview&lt;/a&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/table&quot;&gt;Table&lt;/a&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/map&quot;&gt;Maps&lt;/a&gt;
-      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/vertical&quot;&gt;Bar Chart&lt;/a&gt;
-&lt;!--      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie&quot;&gt;Pie Chart &lt;/a&gt;--&gt;
-&lt;!--      &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie-grid&quot;&gt;Pie-Grid Chart &lt;/a&gt;--&gt;
-    &lt;/mat-nav-list&gt;
+    &lt;div&gt;
+      &lt;mat-nav-list&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
+          &lt;mat-icon&gt;
+            home
+          &lt;/mat-icon&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/overview&quot;&gt;Overview&lt;/a&gt;
+
+        &lt;/div&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
+          &lt;mat-icon&gt;
+            view_list
+          &lt;/mat-icon&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/table&quot;&gt;Table&lt;/a&gt;
+
+        &lt;/div&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
+          &lt;mat-icon&gt;
+            place
+          &lt;/mat-icon&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/map&quot;&gt;Maps&lt;/a&gt;
+
+        &lt;/div&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
+          &lt;mat-icon&gt;
+            bar_chart
+          &lt;/mat-icon&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/chart/vertical&quot;&gt;Bar Chart&lt;/a&gt;
+
+        &lt;/div&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+          &lt;mat-icon&gt;
+            pie_chart
+          &lt;/mat-icon&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/chart/pie&quot;&gt;Pie Chart&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/mat-nav-list&gt;
+    &lt;/div&gt;
   &lt;/mat-sidenav&gt;
   &lt;mat-sidenav-content&gt;
 
@@ -629,10 +658,9 @@ export class MainNavComponent implements OnInit, OnDestroy{
       &gt;
         &lt;mat-icon aria-label&#x3D;&quot;Side nav toggle icon&quot;&gt;menu&lt;/mat-icon&gt;
       &lt;/button&gt;
-      &lt;span&gt;futurice&lt;/span&gt;
       &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
       &lt;button mat-icon-button (click)&#x3D;&quot;onRefresh()&quot;
-             matTooltip&#x3D;&quot;Refresh Data&quot;&gt;
+              matTooltip&#x3D;&quot;Refresh Data&quot;&gt;
         &lt;mat-icon class&#x3D;&quot;icon&quot;&gt;refresh&lt;/mat-icon&gt;
       &lt;/button&gt;
     &lt;/mat-toolbar&gt;
@@ -703,7 +731,7 @@ export class MainNavComponent implements OnInit, OnDestroy{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav #drawer class="sidenav" fixedInViewport               [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"               [mode]="(isHandset$ | async) ? \'over\' : \'side\'"               [opened]="opened != opened">    <mat-toolbar>Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item routerLink="/overview">Overview</a>      <a mat-list-item routerLink="/table">Table</a>      <a mat-list-item routerLink="/map">Maps</a>      <a mat-list-item routerLink="/chart/vertical">Bar Chart</a><!--      <a mat-list-item routerLink="/chart/pie">Pie Chart </a>--><!--      <a mat-list-item routerLink="/chart/pie-grid">Pie-Grid Chart </a>-->    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"      >        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button>      <span>futurice</span>      <span class="spacer"></span>      <button mat-icon-button (click)="onRefresh()"             matTooltip="Refresh Data">        <mat-icon class="icon">refresh</mat-icon>      </button>    </mat-toolbar>    <ng-content>    </ng-content>  </mat-sidenav-content></mat-sidenav-container></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav #drawer class="sidenav" fixedInViewport               [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"               [mode]="(isHandset$ | async) ? \'over\' : \'side\'"               [opened]="opened != opened">    <mat-toolbar>Menu</mat-toolbar>    <div>      <mat-nav-list>        <div fxLayout="row" fxLayoutAlign="space-around center">          <mat-icon>            home          </mat-icon>          <a mat-list-item routerLink="/overview">Overview</a>        </div>        <div fxLayout="row" fxLayoutAlign="space-around center">          <mat-icon>            view_list          </mat-icon>          <a mat-list-item routerLink="/table">Table</a>        </div>        <div fxLayout="row" fxLayoutAlign="space-around center">          <mat-icon>            place          </mat-icon>          <a mat-list-item routerLink="/map">Maps</a>        </div>        <div fxLayout="row" fxLayoutAlign="space-around center">          <mat-icon>            bar_chart          </mat-icon>          <a mat-list-item routerLink="/chart/vertical">Bar Chart</a>        </div>        <div fxLayout="row" fxLayoutAlign="space-between center">          <mat-icon>            pie_chart          </mat-icon>          <a mat-list-item routerLink="/chart/pie">Pie Chart</a>        </div>      </mat-nav-list>    </div>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"      >        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button>      <span class="spacer"></span>      <button mat-icon-button (click)="onRefresh()"              matTooltip="Refresh Data">        <mat-icon class="icon">refresh</mat-icon>      </button>    </mat-toolbar>    <ng-content>    </ng-content>  </mat-sidenav-content></mat-sidenav-container></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DataMapComponent', 'selector': 'app-data-map'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'LinearGaugeComponent', 'selector': 'app-linear-gauge'},{'name': 'MainNavComponent', 'selector': 'app-main-nav'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'},{'name': 'PieGridComponent', 'selector': 'app-pie-grid'},{'name': 'VerticalChartComponent', 'selector': 'app-vertical-chart'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MainNavComponent'};

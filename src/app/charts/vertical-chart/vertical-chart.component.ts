@@ -3,6 +3,7 @@ import {EarthquakeService} from '../../services/earthquake.service';
 import {Subject} from 'rxjs';
 import {EarthquakeResponse} from '../../models/earthquakeResponse';
 
+
 @Component({
   selector: 'app-vertical-chart',
   templateUrl: './vertical-chart.component.html',
@@ -11,7 +12,9 @@ import {EarthquakeResponse} from '../../models/earthquakeResponse';
 export class VerticalChartComponent implements OnInit, OnDestroy {
   private destroyed$ = new Subject();
   data: EarthquakeResponse;
-  public chartData = [];
+  chartData = [];
+  filteredMagnitudes = [];
+  filtereddata = [];
   view: any[] = [1000, 700];
 
   // options
@@ -29,33 +32,33 @@ export class VerticalChartComponent implements OnInit, OnDestroy {
   };
 
 
-  constructor(private readonly earthquakeService: EarthquakeService) { }
+  constructor(private readonly earthquakeService: EarthquakeService) {
+  }
 
   ngOnInit() {
     this.earthquakeService.getEarthquakeData().subscribe(data => {
       this.data = data;
-      const currLength = data.geometries.length;
-      // if (data.geometries.length !== currLength) {
-      //   this.previousValue = data.geometries.length;
-      // }
       this.generateChartData();
     });
     this.earthquakeService.refreshEarthquakeData()
       .subscribe();
+
+    // find elements where magnitude is > 3.7
+    this.filteredMagnitudes = this.data.properties.filter(
+      element => element.mag > 3.7
+    );
   }
-
-
-
   generateChartData() {
     this.chartData = [];
-    for (const p of this.data.properties) {
+    for (const p of this.filteredMagnitudes) {
       const temp = {
-        name: p.title,
+        name: p.place,
         value: p.mag
       };
       this.chartData.push(temp);
     }
   }
+
   ngOnDestroy() {
     this.destroyed$.next();
     this.destroyed$.complete();

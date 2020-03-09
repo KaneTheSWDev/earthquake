@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>futurice documentation</title>
+        <title>earthquake-application documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">futurice documentation</a>
+            <a href="../" class="navbar-brand">earthquake-application documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -173,6 +173,8 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { MapRoutingModule } from &#x27;./map-routing.module&#x27;;
 import { DataMapComponent } from &#x27;./data-map.component&#x27;;
 import {AgmCoreModule} from &#x27;@agm/core&#x27;;
+import {Environment} from &#x27;@angular/compiler-cli/src/ngtsc/typecheck/src/environment&#x27;;
+import {environment} from &#x27;../../environments/environment&#x27;;
 
 
 @NgModule({
@@ -181,7 +183,7 @@ import {AgmCoreModule} from &#x27;@agm/core&#x27;;
     CommonModule,
     MapRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: &#x27;AIzaSyDBvu5D94WBkPYj3mFD9pl8rwwIIM_8ulQ&#x27;
+      apiKey: environment.apiKey
     })
     // api key &#x3D; AIzaSyDBvu5D94WBkPYj3mFD9pl8rwwIIM_8ulQ
   ]

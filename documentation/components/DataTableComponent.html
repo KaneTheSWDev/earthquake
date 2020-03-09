@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>futurice documentation</title>
+        <title>earthquake-application documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">futurice documentation</a>
+            <a href="../" class="navbar-brand">earthquake-application documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -259,8 +259,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/table/data-table.component.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/table/data-table.component.ts:36</a></div>
                 </td>
             </tr>
 
@@ -298,8 +298,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/table/data-table.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/table/data-table.component.ts:39</a></div>
                 </td>
             </tr>
 
@@ -376,8 +376,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/table/data-table.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/table/data-table.component.ts:30</a></div>
                 </td>
             </tr>
 
@@ -577,7 +577,6 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     this.earthquakeService.getEarthquakeData().subscribe(data &#x3D;&gt; {
       this.data &#x3D; data;
       this.matTableDataSource &#x3D; new MatTableDataSource(this.data.properties);
-      // this.matTableDataSource.paginator &#x3D; this.paginator;
       this.setupPagination(data);
     });
 
@@ -603,8 +602,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   &lt;table mat-table [dataSource]&#x3D;&quot;matTableDataSource&quot; matSort class&#x3D;&quot;mat-elevation-z8&quot;&gt;
 
-    &lt;!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition&quot; --&gt;
+
 
     &lt;!-- Place Column --&gt;
     &lt;ng-container matColumnDef&#x3D;&quot;place&quot;&gt;
@@ -675,7 +673,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="mat-elevation-z8" [hidden]="!data">  <table mat-table [dataSource]="matTableDataSource" matSort class="mat-elevation-z8">    <!--- Note that these columns can be defined in any order.          The actual rendered columns are set as a property on the row definition" -->    <!-- Place Column -->    <ng-container matColumnDef="place">      <th mat-header-cell *matHeaderCellDef> Location</th>      <td mat-cell *matCellDef="let element"> {{element.place }} </td>    </ng-container>    <!-- Mag Column -->    <ng-container matColumnDef="magnitude">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Magnitude</th>      <td mat-cell *matCellDef="let element"> {{element.mag}} </td>    </ng-container>    <!-- Time Column -->    <ng-container matColumnDef="time">      <th mat-header-cell *matHeaderCellDef> Time</th>      <td mat-cell *matCellDef="let element"> {{element.time | date: \'medium\' }} </td>    </ng-container>    <!-- Type Column -->    <ng-container matColumnDef="type">      <th mat-header-cell *matHeaderCellDef> Type</th>      <td mat-cell *matCellDef="let element"> {{element.type}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  </table></div><mat-paginator [pageSize]="20" (page)="setupPagination($event)"></mat-paginator></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="mat-elevation-z8" [hidden]="!data">  <table mat-table [dataSource]="matTableDataSource" matSort class="mat-elevation-z8">    <!-- Place Column -->    <ng-container matColumnDef="place">      <th mat-header-cell *matHeaderCellDef> Location</th>      <td mat-cell *matCellDef="let element"> {{element.place }} </td>    </ng-container>    <!-- Mag Column -->    <ng-container matColumnDef="magnitude">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Magnitude</th>      <td mat-cell *matCellDef="let element"> {{element.mag}} </td>    </ng-container>    <!-- Time Column -->    <ng-container matColumnDef="time">      <th mat-header-cell *matHeaderCellDef> Time</th>      <td mat-cell *matCellDef="let element"> {{element.time | date: \'medium\' }} </td>    </ng-container>    <!-- Type Column -->    <ng-container matColumnDef="type">      <th mat-header-cell *matHeaderCellDef> Type</th>      <td mat-cell *matCellDef="let element"> {{element.type}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  </table></div><mat-paginator [pageSize]="20" (page)="setupPagination($event)"></mat-paginator></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DataMapComponent', 'selector': 'app-data-map'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'LinearGaugeComponent', 'selector': 'app-linear-gauge'},{'name': 'MainNavComponent', 'selector': 'app-main-nav'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'},{'name': 'PieGridComponent', 'selector': 'app-pie-grid'},{'name': 'VerticalChartComponent', 'selector': 'app-vertical-chart'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DataTableComponent'};

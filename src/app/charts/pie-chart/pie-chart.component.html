@@ -1,10 +1,24 @@
-<ngx-charts-pie-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="chartData"
-  [gradient]="gradient"
-  [legend]="showLegend"
-  [legendPosition]="legendPosition"
-  [labels]="showLabels"
-  [doughnut]="isDoughnut">
-</ngx-charts-pie-chart>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h2>Pie Chart with different selectable magnitudes</h2>
+  <div fxLayout="row" fxLayoutAlign="space-around center"  >
+    <ngx-charts-pie-chart
+      *ngIf="data"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [gradient]="gradient"
+      [doughnut]="isDoughnut"
+      [labels]="showLabels"
+    >
+    </ngx-charts-pie-chart>
+
+    <mat-form-field>
+      <mat-label>Magnitude</mat-label>
+      <mat-select [(value)]="selectedMagnitude" (selectionChange)="getMagnitudeLevel($event)">
+        <mat-option *ngFor="let mag of magnitudes" [value]="mag.value">
+          {{mag.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

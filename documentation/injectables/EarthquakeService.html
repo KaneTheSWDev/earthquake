@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>futurice documentation</title>
+        <title>earthquake-application documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">futurice documentation</a>
+            <a href="../" class="navbar-brand">earthquake-application documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -76,7 +76,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_earthquakeData$">_earthquakeData$</a>
+                                <a href="#earthquakeData$">earthquakeData$</a>
                             </li>
                             <li>
                                 <a href="#url">url</a>
@@ -226,8 +226,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/services/earthquake.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/services/earthquake.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -253,12 +253,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_earthquakeData$"></a>
+                        <a name="earthquakeData$"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _earthquakeData$</b>
-                            <a href="#_earthquakeData$"><span class="icon ion-ios-link"></span></a>
+                            earthquakeData$</b>
+                            <a href="#earthquakeData$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -326,7 +326,7 @@ import {tap} from &#x27;rxjs/operators&#x27;;
 export class EarthquakeService {
   url &#x3D; &#x27;https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson&#x27;;
 
-  private _earthquakeData$ &#x3D; new ReplaySubject&lt;EarthquakeResponse&gt;(1);
+  private earthquakeData$ &#x3D; new ReplaySubject&lt;EarthquakeResponse&gt;(1);
 
 
   constructor(private readonly httpClient: HttpClient) {
@@ -334,16 +334,15 @@ export class EarthquakeService {
 
 
   getEarthquakeData(): Observable&lt;EarthquakeResponse&gt; {
-    // return the subject here
-    // subscribers will will notified when the data is refreshed
-    return this._earthquakeData$.asObservable();
+
+    return this.earthquakeData$.asObservable();
   }
 
   refreshEarthquakeData(): Observable&lt;void&gt; {
     return this.httpClient.get&lt;any&gt;(this.url).pipe(
       tap(response &#x3D;&gt; {
         // notify all subscribers of new data
-        this._earthquakeData$.next({
+        this.earthquakeData$.next({
           geometries: response.features.map(x &#x3D;&gt; x.geometry),
           properties: response.features.map(x &#x3D;&gt; x.properties)
         });

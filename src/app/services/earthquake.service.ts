@@ -10,7 +10,7 @@ import {tap} from 'rxjs/operators';
 export class EarthquakeService {
   url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
 
-  private _earthquakeData$ = new ReplaySubject<EarthquakeResponse>(1);
+  private earthquakeData$ = new ReplaySubject<EarthquakeResponse>(1);
 
 
   constructor(private readonly httpClient: HttpClient) {
@@ -19,14 +19,14 @@ export class EarthquakeService {
 
   getEarthquakeData(): Observable<EarthquakeResponse> {
 
-    return this._earthquakeData$.asObservable();
+    return this.earthquakeData$.asObservable();
   }
 
   refreshEarthquakeData(): Observable<void> {
     return this.httpClient.get<any>(this.url).pipe(
       tap(response => {
         // notify all subscribers of new data
-        this._earthquakeData$.next({
+        this.earthquakeData$.next({
           geometries: response.features.map(x => x.geometry),
           properties: response.features.map(x => x.properties)
         });

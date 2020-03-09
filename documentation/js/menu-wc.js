@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">futurice documentation</a>
+                    <a href="index.html" data-type="index-link">earthquake-application documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -80,13 +80,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ChartsModule.html" data-type="entity-link">ChartsModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ChartsModule-8e4b546da465cf5bbed74babc3824319"' : 'data-target="#xs-components-links-module-ChartsModule-8e4b546da465cf5bbed74babc3824319"' }>
+                                            'data-target="#components-links-module-ChartsModule-e604f9f17a85566c44c7f90ac8605155"' : 'data-target="#xs-components-links-module-ChartsModule-e604f9f17a85566c44c7f90ac8605155"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ChartsModule-8e4b546da465cf5bbed74babc3824319"' :
-                                            'id="xs-components-links-module-ChartsModule-8e4b546da465cf5bbed74babc3824319"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ChartsModule-e604f9f17a85566c44c7f90ac8605155"' :
+                                            'id="xs-components-links-module-ChartsModule-e604f9f17a85566c44c7f90ac8605155"' }>
                                             <li class="link">
                                                 <a href="components/LinearGaugeComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LinearGaugeComponent</a>
@@ -113,13 +113,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/MapModule.html" data-type="entity-link">MapModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-MapModule-cf9d4aa6e5beaec1e330fcc85b3def8a"' : 'data-target="#xs-components-links-module-MapModule-cf9d4aa6e5beaec1e330fcc85b3def8a"' }>
+                                            'data-target="#components-links-module-MapModule-d26841436329f73d9cac8d4ff5b92138"' : 'data-target="#xs-components-links-module-MapModule-d26841436329f73d9cac8d4ff5b92138"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MapModule-cf9d4aa6e5beaec1e330fcc85b3def8a"' :
-                                            'id="xs-components-links-module-MapModule-cf9d4aa6e5beaec1e330fcc85b3def8a"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MapModule-d26841436329f73d9cac8d4ff5b92138"' :
+                                            'id="xs-components-links-module-MapModule-d26841436329f73d9cac8d4ff5b92138"' }>
                                             <li class="link">
                                                 <a href="components/DataMapComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DataMapComponent</a>

@@ -23,7 +23,6 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     this.earthquakeService.getEarthquakeData().subscribe(data => {
       this.data = data;
       this.matTableDataSource = new MatTableDataSource(this.data.properties);
-      // this.matTableDataSource.paginator = this.paginator;
       this.setupPagination(data);
     });
 

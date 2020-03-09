@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import {Observable, Subject, timer} from 'rxjs';
-import {map, shareReplay, switchMap, takeUntil, tap} from 'rxjs/operators';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Observable, Subject} from 'rxjs';
+import {map, shareReplay, takeUntil} from 'rxjs/operators';
 import {EarthquakeService} from '../services/earthquake.service';
 import {EarthquakeResponse} from '../models/earthquakeResponse';
 
@@ -10,8 +10,8 @@ import {EarthquakeResponse} from '../models/earthquakeResponse';
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.css']
 })
-export class MainNavComponent implements OnInit, OnDestroy{
-  opened = false;
+export class MainNavComponent implements OnInit, OnDestroy {
+  opened = true;
   data: EarthquakeResponse;
   refresh = false;
   today: Date;
@@ -36,7 +36,6 @@ export class MainNavComponent implements OnInit, OnDestroy{
   }
   onRefresh() {
     this.refresh = true;
-    console.log('refresh called');
     this.earthquakeService.refreshEarthquakeData().subscribe(() => {
       this.refresh = false;
     });

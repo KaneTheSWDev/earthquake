@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'table', loadChildren: () => import('./table/table.module').then(t => t.TableModule) },
   { path: 'map', loadChildren: () => import('./map/map.module').then(m => m.MapModule)},
   { path: '', redirectTo: '/overview', pathMatch: 'full'},
+  { path: '**', redirectTo: '/overview', pathMatch: 'full'},
 ];
 
 @NgModule({

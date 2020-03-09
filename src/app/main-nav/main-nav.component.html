@@ -4,35 +4,44 @@
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="opened != opened">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <div fxLayout="row" fxLayoutAlign="space-around center">
-        <a mat-list-item routerLink="/overview">Overview</a>
+    <div>
+      <mat-nav-list>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
           <mat-icon>
             home
           </mat-icon>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="space-around center">
-        <a mat-list-item routerLink="/table">Table</a>
-        <mat-icon>
-          view_list
-        </mat-icon>
-      </div>
-     <div fxLayout="row" fxLayoutAlign="space-around center">
-       <a mat-list-item routerLink="/map">Maps</a>
-       <mat-icon>
-         place
-       </mat-icon>
-     </div>
-      <div fxLayout="row" fxLayoutAlign="space-around center">
-        <a mat-list-item routerLink="/chart/vertical">Bar Chart</a>
-        <mat-icon>
-          bar_chart
-        </mat-icon>
-      </div>
+          <a mat-list-item routerLink="/overview">Overview</a>
 
-<!--      <a mat-list-item routerLink="/chart/pie">Pie Chart </a>-->
-<!--      <a mat-list-item routerLink="/chart/pie-grid">Pie-Grid Chart </a>-->
-    </mat-nav-list>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <mat-icon>
+            view_list
+          </mat-icon>
+          <a mat-list-item routerLink="/table">Table</a>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <mat-icon>
+            place
+          </mat-icon>
+          <a mat-list-item routerLink="/map">Maps</a>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <mat-icon>
+            bar_chart
+          </mat-icon>
+          <a mat-list-item routerLink="/chart/vertical">Bar Chart</a>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-icon>
+            pie_chart
+          </mat-icon>
+          <a mat-list-item routerLink="/chart/pie">Pie Chart</a>
+        </div>
+      </mat-nav-list>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
 
@@ -45,10 +54,9 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>futurice</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="onRefresh()"
-             matTooltip="Refresh Data">
+              matTooltip="Refresh Data">
         <mat-icon class="icon">refresh</mat-icon>
       </button>
     </mat-toolbar>

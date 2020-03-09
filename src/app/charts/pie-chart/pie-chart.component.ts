@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {EarthquakeResponse} from '../../models/earthquakeResponse';
 import {EarthquakeService} from '../../services/earthquake.service';
 
+
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
@@ -16,43 +17,64 @@ export class PieChartComponent implements OnInit, OnDestroy {
 
   // options
   gradient = true;
-  showLegend = true;
+  showLegend = false;
   showLabels = true;
   isDoughnut = false;
-  legendPosition = 'below';
+
+  filteredData = [];
+  selectedMagnitude;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
+  magnitudes: any[]  = [
+   { value: 1, viewValue: '>1' },
+   { value: 2, viewValue: '>2' },
+   { value: 3, viewValue: '>3' },
+   { value: 4, viewValue: '>4' },
+   { value: 5, viewValue: '>5' },
+ ];
 
-  constructor(private readonly earthquakeService: EarthquakeService) { }
+  constructor(private readonly earthquakeService: EarthquakeService) {
+  }
 
   ngOnInit() {
     this.earthquakeService.getEarthquakeData().subscribe(data => {
       this.data = data;
-      const currLength = data.geometries.length;
-      // if (data.geometries.length !== currLength) {
-      //   this.previousValue = data.geometries.length;
-      // }
       this.generateChartData();
     });
     this.earthquakeService.refreshEarthquakeData()
       .subscribe();
+
+
+    this.filteredData = this.data.properties.filter(
+      element => element.mag > 3
+    );
   }
+
 
   generateChartData() {
     this.chartData = [];
-    for (const p of this.data.properties) {
+    for (const p of this.filteredData) {
       const temp = {
-        name: 'magnitude',
+        name: p.place,
         value: p.mag
       };
       this.chartData.push(temp);
     }
   }
+  getMagnitudeLevel(event) {
+    this.filteredData = this.data.properties.filter(
+      element => element.mag > event.value
+    );
+    this.generateChartData();
+  }
+
+
   ngOnDestroy() {
     this.destroyed$.next();
     this.destroyed$.complete();
   }
+
 
 }

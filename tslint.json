@@ -1,5 +1,7 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:latest"
+  ],
   "rules": {
     "array-type": false,
     "arrow-parens": false,

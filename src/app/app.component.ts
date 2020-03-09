@@ -10,11 +10,10 @@ import {EarthquakeService} from './services/earthquake.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'futurice';
+
   data: EarthquakeResponse;
   refresh = false;
   today: Date;
-  opened = false;
 
   private destroyed$ = new Subject();
 
@@ -27,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.data = data;
     });
 
-    timer(0, 500000).pipe(
+    timer(0, 600000).pipe(
       takeUntil(this.destroyed$),
       tap(() => this.refresh = true),
       switchMap(() =>
@@ -37,14 +36,6 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.today = new Date();
   }
-
-  onRefresh() {
-    this.refresh = true;
-    this.earthquakeService.refreshEarthquakeData().subscribe(() => {
-      this.refresh = false;
-    });
-  }
-
   ngOnDestroy() {
     this.destroyed$.next();
     this.destroyed$.complete();
